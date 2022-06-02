@@ -37,25 +37,4 @@ class staycation:
     def cost(self, value: float):
         self.__cost = value
 
-    def all_records():
-        pass
-
-    def bubble_sort():
-        pass
-
-    def selection_sort():
-        pass
-
-    def insertion_sort():
-        pass
-
-    def linear_search():
-        pass
-
-    def binary_search():
-        pass
-    
-    def list_range():
-        pass
-
 
