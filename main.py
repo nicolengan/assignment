@@ -1,42 +1,43 @@
-from pprint import pprint
-from assignment import staycation
+from staycation import Staycation
+from method import *
 
+c1 = Staycation("Deluxe", "Johnny John", 2, 200)
+c2 = Staycation("Single", "Betty Bett", 1, 150)
+c3 = Staycation("Family", "May Flower", 2, 450)
+c4 = Staycation("Deluxe", "Bobby Bob", 2, 200)
+c5 = Staycation("Suite", "Alexis Alex", 2, 600)
+c6 = Staycation("Single", "Paris Pear", 1, 150)
+c7 = Staycation("Suite", "Jane Joules", 2, 600)
+c8 = Staycation("Family", "Ben Dover", 2, 450)
+c9 = Staycation("Single", "Mike Hawk", 1, 150)
+c10 = Staycation("Single", "Hugh Jass", 1, 150)
 
-def all_records():
-    for i in vars(c1):
-        print(i.replace("staycation", ""))
-        print(vars(c1)[i])
-    pass
+data_list = [c1, c2, c3, c4, c5, c6, c7, c8, c9, c10]
 
-def bubble_sort():
-    pass
+choice = print_menu()
 
+if choice == "1":
+    for x in data_list:
+        x.list_all()
+# option 2, sort record by customer name using bubble sort
+elif choice == "2":
+   print(bubble_sort(data_list))
 
-def selection_sort():
-    pass
+# option 3 sort record by package name using selection sort
+elif choice == "3":
+    print(selection_sort(data_list))
 
+# option 4 sort record by package cost using insertion sort
+elif choice == "4":
+    insertion_sort()
 
-def insertion_sort():
-    pass
+# option 5 search record by customer name using linear search and update record
+elif choice == "5":
+    linear_search()
 
+# option 6 search record by package name using binary search and update record by
+elif choice == "6":
+    binary_search()
 
-def linear_search():
-    pass
-
-
-def binary_search():
-    pass
-
-
-def list_range():
-    pass
-
-
-c1 = staycation()
-c1.pkg_name = "Deluxe"
-c1.cust_name = "Banana"
-c1.no_pax = 2
-c1.cost = 200
-
-print(vars(c1))
-# all_records()
+elif choice == "7":
+    list_range()
