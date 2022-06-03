@@ -1,36 +1,9 @@
-def all_records():
-    pass
-
-
-def bubble_sort():
-    pass
-
-
-def selection_sort():
-    pass
-
-
-def insertion_sort():
-    pass
-
-
-def linear_search():
-    pass
-
-
-def binary_search():
-    pass
-
-
-def list_range():
-    pass
-
 class Staycation:
-    def __init__(self):
-        self.__pkg_name = ""
-        self.__cust_name = ""
-        self.__no_pax = 0
-        self.__cost = 0
+    def __init__(self, pkg_name, cust_name, no_pax, cost):
+        self.__pkg_name = pkg_name
+        self.__cust_name = cust_name
+        self.__no_pax = no_pax
+        self.__cost = cost
 
     @property
     def pkg_name(self) -> str:
@@ -47,31 +20,6 @@ class Staycation:
     @property
     def cost(self) -> float:
         return self.__cost
-
-    @pkg_name.setter
-    def pkg_name(self, value: str):
-        self.__pkg_name = value
-
-    @cust_name.setter
-    def cust_name(self, value: str):
-        self.__cust_name = value
-
-    @no_pax.setter
-    def no_pax(self, value: int):
-        self.__no_pax = value
-
-    @cost.setter
-    def cost(self, value: float):
-        self.__cost = value
-
-def print_menu():
-    print("""1. Display all records
-2. Sort record by Customer Name using Bubble sort
-3. Sort record by Package Name using Selection sort
-4. Sort record by Package Cost using Insertion sort
-5. Search record by Customer Name using Linear Search and update record
-6. Search record by Package Name using Binary Search and update record
-7. List records range from $X to $Y. e.g $100-200
-Exit Application""")
-
-print_menu()
+    
+    def list_all(self):
+        print(f"Package Name: {self.__pkg_name}\nCustomer Name: {self.__cust_name}\nPax: {self.__no_pax}\nCost: {self.__cost}\n")
