@@ -1,3 +1,10 @@
+"""
+extra feature: heap sort/jump search?
+to do: change data_list after sorted, error handling, optimise bubble sort and linear search?
+https://stackabuse.com/search-algorithms-in-python/
+https://stackabuse.com/sorting-algorithms-in-python/
+"""
+
 from staycation import Staycation
 from method import *
 
@@ -19,6 +26,7 @@ choice = print_menu()
 if choice == "1":
     for x in data_list:
         x.list_all()
+        
 # option 2, sort record by customer name using bubble sort
 elif choice == "2":
    print(bubble_sort(data_list))
