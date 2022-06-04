@@ -21,11 +21,11 @@ def bubble_sort(data_list):
 
     n = len(name_list)
     for i in range(n - 1, 0, -1):
-        # Bubble the largest item to the end
+        
         for j in range(i):
             if name_list[j] > name_list[j + 1]:
-                # Swap the j and j+1 items
                 y = name_list[j]
+                # swap
                 name_list[j] = name_list[j + 1]
                 name_list[j + 1] = y
     # add: update record to sorted display
@@ -33,28 +33,56 @@ def bubble_sort(data_list):
 
 
 def selection_sort(data_list):
+    
     pkg_list = []
+    
     for p in data_list:
         pkg_list.append(p.pkg_name)
+        
     n = len(pkg_list)
+    
     for i in range(n - 1):
         # Assume the ith element is the smallest.
         smallest = i
+        
         # Determine if any other element contains a smaller value.
-        for j in range(i+1, n):
+        for j in range(i + 1, n):
             if pkg_list[j] < pkg_list[smallest]:
                 smallest = j
                 # Swap the ith value and smallest value only if the smallest
                 # value is not already in its proper position.
+                
         if smallest != i:
             y = pkg_list[i]
             pkg_list[i] = pkg_list[smallest]
             pkg_list[smallest] = y
+            
     return pkg_list
 
 
-def insertion_sort():
-    pass
+def insertion_sort(data_list):
+    cost_list = []
+    for p in data_list:
+        cost_list.append(p.cost)
+        
+    n = len(cost_list)
+    # Starts with the first item as the only sorted entry.
+    
+    for i in range(1, n):
+    # Save the value to be positioned
+        value = cost_list[i]
+        # Find the position where value fits in the
+        # ordered part of the list.
+        pos = i
+        
+        while pos > 0 and value < cost_list[pos - 1]:
+        # Shift the items to the right during the search
+            cost_list[pos] = cost_list[pos-1]
+            pos -= 1
+            # Put the saved value into the open slot.
+            cost_list[pos] = value
+            
+    return cost_list
 
 
 def linear_search():

@@ -29,7 +29,7 @@ elif choice == "3":
 
 # option 4 sort record by package cost using insertion sort
 elif choice == "4":
-    insertion_sort()
+    print(insertion_sort(data_list))
 
 # option 5 search record by customer name using linear search and update record
 elif choice == "5":
