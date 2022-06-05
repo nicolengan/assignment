@@ -1,6 +1,3 @@
-import gc
-
-
 def print_menu():
     print("""1. Display all records
 2. Sort record by Customer Name using Bubble sort
@@ -54,10 +51,15 @@ def selection_sort(data_list):
                 
         if smallest != i:
             y = pkg_list[i]
-            pkg_list[i] = pkg_list[smallest]
-            pkg_list[smallest] = y
+            x = data_list[i]
             
-    return pkg_list
+            pkg_list[i] = pkg_list[smallest]
+            data_list[i] = data_list[smallest]
+            
+            pkg_list[smallest] = y
+            data_list[smallest] = x
+            
+    return data_list
 
 
 def insertion_sort(data_list):
@@ -86,7 +88,9 @@ def insertion_sort(data_list):
 
 
 def linear_search():
-    pass
+    name_list = []
+    for p in name_list:
+        name_list.append(p.cost)
 
 
 def binary_search():

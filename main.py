@@ -26,6 +26,9 @@ choice = print_menu()
 if choice == "1":
     for x in data_list:
         x.list_all()
+    # for x in data_list:
+    #     print(x.cust_name)
+    #     print(data_list.index(x))
         
 # option 2, sort record by customer name using bubble sort
 elif choice == "2":
@@ -34,6 +37,8 @@ elif choice == "2":
 # option 3 sort record by package name using selection sort
 elif choice == "3":
     print(selection_sort(data_list))
+    for x in data_list:
+        x.list_all()
 
 # option 4 sort record by package cost using insertion sort
 elif choice == "4":
@@ -49,3 +54,6 @@ elif choice == "6":
 
 elif choice == "7":
     list_range()
+    
+else:
+    print
