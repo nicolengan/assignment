@@ -25,8 +25,8 @@ def validate_str(field):
     
     while validate:
         s = input(f"{field}: ").strip()
-        sNoSpace = s.replace(' ','')
         sNoSpace = s.replace('', 'a')
+        sNoSpace = sNoSpace.replace(' ','a')
         validate = False
         
         if not sNoSpace.isalpha():
@@ -74,7 +74,6 @@ def update_record(index_list):
     for p in data_list:
         pkg_list.append(p.pkg_name)
         
-    print(f"{len(index_list)} record(s) found! Please enter the updated records.")
     for i in index_list:
         
         x = 0
@@ -87,24 +86,25 @@ def update_record(index_list):
             update = validate_str("Update record (Y/N)")
             
             if update == "y":
-                cust_name = validate_str("Enter new customer name").title()
+                cust_name = validate_str("Enter new customer name (Enter nothing or space to skip)").title()
                 
                 while True:
-                    pkg_name = validate_str("Enter new package name").title()
+                    pkg_name = validate_str("Enter new package name (Enter nothing or space to skip)").title()
                     
                     if pkg_name in pkg_list:
-                        print(f"{pkg_name} already exists, please try again.")
+                        print(f"Package {pkg_name} already exists, please try again.")
                         
                     else:
                         break
                         
-                pax = validate_int("Enter new pax", True)
-                cost = validate_int("Enter new cost", True)
+                pax = validate_int("Enter new pax (Enter nothing or space to skip)", True)
+                cost = validate_int("Enter new cost (Enter nothing or space to skip)", True)
                 
-                data_list[i].cust_name = x if x else data_list[i].cust_name
-                data_list[i].pkg_name = x if x else data_list[i].pkg_name
-                data_list[i].pax = x if x else data_list[i].pax
-                data_list[i].cost = x if x else data_list[i].cost
+                data_list[i].cust_name = cust_name if cust_name else data_list[i].cust_name
+                data_list[i].pkg_name = pkg_name if pkg_name else data_list[i].pkg_name
+                data_list[i].pax = pax if pax else data_list[i].pax
+                data_list[i].cost = cost if cost else data_list[i].cost
+                
                 print(f"\nNew details\n{'='*20}\nCustomer Name: {data_list[i].cust_name}\nPackage Name: {data_list[i].pkg_name}\nPax: {data_list[i].pax}\nCost: ${data_list[i].cost}\n")
                 print("Update successful.")
                 
@@ -196,6 +196,7 @@ def linear_search(target):
             pass
         
     if index_list:
+        print(f"{len(index_list)} record(s) found! Please enter the updated records.")
         update_record(index_list)
         
     elif not index_list:
@@ -233,6 +234,7 @@ def binary_search(l, r, x):
             return binary_search(mid + 1, r, x)
         
     if index_list:
+        print("Record found! Please enter the updated records.")
         update_record(index_list)
         
     elif not index_list:
