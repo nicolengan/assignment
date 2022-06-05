@@ -363,7 +363,6 @@ while True:
         print("Successful sort!\n")
         
     elif choice == "q":
-        
         break
         
     else:
