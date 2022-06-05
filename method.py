@@ -1,4 +1,3 @@
-from operator import index
 from staycation import Staycation
 
 
