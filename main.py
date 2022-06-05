@@ -6,24 +6,23 @@ def list_all():
         x.return_string()
         
         
-c1 = Staycation("Johnny John", "Deluxe", 7, 300)
-c2 = Staycation("Johnny John", "Single",  9, 150)
-c3 = Staycation("May Flower", "Family", 5, 450)
-c4 = Staycation("Bobby Bob", "Ultra Deluxe", 8, 400)
-c5 = Staycation("Alexis Alex", "Suite", 6, 600)
-c6 = Staycation("Paris Pear", "Large Single", 11, 200)
-c7 = Staycation("Jane Joules", "Single Suite", 1, 350)
-c8 = Staycation("Ben Dover", "Big Family", 3, 500)
-c9 = Staycation("Mike Hawk", "Holiday", 2, 550)
-c10 = Staycation("Hugh Jass", "Deluxe Suite", 4, 800)
+data_list = [
+    Staycation("Johnny John", "Deluxe", 7, 300),
+    Staycation("Johnny John", "Single",  9, 150),
+    Staycation("May Flower", "Family", 5, 450),
+    Staycation("Bobby Bob", "Ultra Deluxe", 8, 400),
+    Staycation("Alexis Alex", "Suite", 6, 600),
+    Staycation("Paris Pear", "Large Single", 11, 200),
+    Staycation("Jane Joules", "Single Suite", 1, 350),
+    Staycation("Ben Dover", "Big Family", 3, 500),
+    Staycation("Mike Hawk", "Holiday", 2, 550),
+    Staycation("Hugh Jass", "Deluxe Suite", 4, 800)]
 
-data_list = [c1, c2, c3, c4, c5, c6, c7, c8, c9, c10]
 
 while True:
     choice = print_menu().lower()
     if choice == "1":
         list_all()
-        print("Successful sort!")
             
             
     # option 2, sort record by customer name using bubble sort
@@ -51,23 +50,20 @@ while True:
 
     # option 6 search record by package name using binary search and update record by
     elif choice == "6":
-                
         binary_search(data_list, 0, len(data_list)-1, validate_str("Enter package name"))
         # list_all()
 
     elif choice == "7":
-        
         start = validate_int("Enter start range $")
         stop = validate_int("Enter stop range $")
         
         list_range(data_list, start, stop)
         
     elif choice == "8":
-        
         heap_sort(data_list)
+        
         print("Successful sort!")
         list_all()
-        break
         
     elif choice == "q":
         

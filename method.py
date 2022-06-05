@@ -10,7 +10,7 @@ def print_menu():
 6. Search record by Package Name using Binary Search and update record
 7. List records range from $X to $Y. e.g $100-200
 8. Sort record by Pax using Heap sort
-Exit Application""")
+Q to Exit Application""")
     choice = input("Enter choice (Q to exit): ")
     return choice
         
@@ -37,7 +37,11 @@ def validate_int(field):
         
         try:
             s = int(input(f"{field}: "))
-            validate = False
+            if s > 0:
+                validate = False
+                break
+            else:
+                print("Number cannot be negative or equals to 0.")
             
         except ValueError:
             print("Please enter only numbers.")
