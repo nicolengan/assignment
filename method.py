@@ -88,7 +88,7 @@ def bubble_sort(data_list):
     for i in range(n - 1, 0, -1):
         
         for j in range(i):
-            if data_list[j].cust_name > data_list[j + 1].cust_name:
+            if data_list[j].cust_name.lower() > data_list[j + 1].cust_name.lower():
                 y = data_list[j]
                 # swap
                 data_list[j] = data_list[j + 1]
@@ -107,7 +107,7 @@ def selection_sort(data_list):
         
         # Determine if any other element contains a smaller value.
         for j in range(i + 1, n):
-            if data_list[j].pkg_name < data_list[smallest].pkg_name:
+            if data_list[j].pkg_name.lower() < data_list[smallest].pkg_name.lower():
                 smallest = j
                 # Swap the ith value and smallest value only if the smallest
                 # value is not already in its proper position.

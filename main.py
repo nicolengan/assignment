@@ -65,6 +65,7 @@ while True:
     elif choice == "8":
         
         heap_sort(data_list)
+        print("Successful sort!")
         list_all()
         break
         
