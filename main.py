@@ -65,7 +65,7 @@ def validate_int(field, empty):
             
         except ValueError:
             print("Please enter only numbers.")
-    return s
+    return int(s)
 
 def update_record(index_list):
     count = 1
