@@ -36,36 +36,24 @@ def validate_str(field):
     return s.lower()
 
 
-def validate_int(field, empty):
+def validate_int(field):
     validate = True
     
     while validate:
         
         try:
-            if empty == False:
-                s = int(input(f"{field}: "))
-                
-                if s > 0:
-                    validate = False
-                    break
-                
-                else:
-                    print("Number cannot be negative or equals to 0.")
-                    
-            elif empty == True:
-                s = input(f"{field}: ")
-                
-                placeholder = int(s.replace('', "1"))
-                if placeholder > 0:
-                    validate = False
-                    break
-                
-                else:
-                    print("Number cannot be negative or equals to 0.")
+            s = int(input(f"{field}: "))
+            
+            if s > 0:
+                validate = False
+                break
+            
+            else:
+                print("Number cannot be negative or equals to 0.")
             
         except ValueError:
             print("Please enter only numbers.")
-    return int(s)
+    return s
 
 def update_record(index_list):
     count = 1
@@ -97,8 +85,8 @@ def update_record(index_list):
                     else:
                         break
                         
-                pax = validate_int("Enter new pax (Enter nothing or space to skip)", True)
-                cost = validate_int("Enter new cost (Enter nothing or space to skip)", True)
+                pax = validate_int("Enter new pax")
+                cost = validate_int("Enter new cost")
                 
                 data_list[i].cust_name = cust_name if cust_name else data_list[i].cust_name
                 data_list[i].pkg_name = pkg_name if pkg_name else data_list[i].pkg_name
@@ -280,7 +268,7 @@ def heapify(heap_size, root_index):
     # If the largest element is no longer the root element, swap them
     
     if largest != root_index:
-        data_list[root_index].pax, data_list[largest].pax = data_list[largest].pax, data_list[root_index].pax
+        data_list[root_index], data_list[largest] = data_list[largest], data_list[root_index]
         
         # Heapify the new root element to ensure it's the largest
         
@@ -302,7 +290,7 @@ def heap_sort():
     # Move the root of the max heap to the end of
     
     for i in range(n - 1, 0, -1):
-        data_list[i].pax, data_list[0].pax = data_list[0].pax, data_list[i].pax
+        data_list[i], data_list[0] = data_list[0], data_list[i]
         heapify(i, 0)
 
 data_list = [
